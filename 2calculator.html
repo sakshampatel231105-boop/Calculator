@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #box {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        width: 350px;
+        text-align: center;
+    }
+
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        color: #333;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 16px;
+        margin: 5px;
+        border: none;
+        border-radius: 6px;
+        background-color: #0078d4;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #009ea3;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #0078d4;
+    }
+</style>
+</head>
+<body>
+
+    <div id="box">
+    <div>
+        <label for="length">Length :  </label>
+        <input type="number" id="length" placeholder="Enter first number">
+    </div>
+    <br>
+    <div>
+        <label for="Breadth">Breadth : </label>
+        <input type="number" id="breadth" placeholder="Enter first number">
+    </div>
+    <br>
+    <div>
+    <button type="button" onclick="usePrompt('area')">Area</button>
+    <button type="button" onclick="usePrompt('perimeter')">Perimeter</button>
+    
+    </div>
+    <br>
+
+    <div id="result"></div>
+    <script>
+        function usePrompt(operation){
+            let a= parseFloat(document.getElementById("length").value)
+            let b= parseFloat(document.getElementById("breadth").value)
+            let result='';
+
+            if(isNaN(a)|| isNaN(b)){
+            result='Please enter both numbers';
+        }else{
+            switch(operation){
+                case 'area':
+                    result = a * b;
+                    break;
+                case 'perimeter':
+                    result = 2*(a+b);
+                    break;
+            }
+            
+        }
+        document.getElementById('result').innerText = 'Result : ' + result;
+    }
+    document
+    </script>
+</body>
+</html>
